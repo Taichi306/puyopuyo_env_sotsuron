@@ -8,7 +8,7 @@ from gym.utils import seeding
 from gym_puyopuyo import util
 from gym_puyopuyo.field import BottomField, TallField
 
-ALLOWED_HEIGHTS = (BottomField.HEIGHT, TallField.HEIGHT, 13)
+ALLOWED_HEIGHTS = (BottomField.HEIGHT, TallField.HEIGHT, 13, 12)
 
 
 class State(object):
