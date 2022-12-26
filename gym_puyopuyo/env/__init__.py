@@ -163,7 +163,7 @@ def register():
 
     gym.envs.register(
         id=ENV_NAMES["boxed-normal"],
-        entry_point="gym_puyopuyo.env.endless:PuyoPuyoEndlessEnv",
+        entry_point="gym_puyopuyo.env.endless:PuyoPuyoEndlessBoxedEnv",
         kwargs={"width": 6, "height": 12, "num_colors": 4, "num_deals": 2, "tsu_rules": False},
         max_episode_steps=None,
         reward_threshold=25.0,

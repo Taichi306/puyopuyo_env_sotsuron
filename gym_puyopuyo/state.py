@@ -6,9 +6,9 @@ import numpy as np
 from gym.utils import seeding
 
 from gym_puyopuyo import util
-from gym_puyopuyo.field import BottomField, TallField
+from gym_puyopuyo.field import BottomField, TallField, MyField
 
-ALLOWED_HEIGHTS = (BottomField.HEIGHT, TallField.HEIGHT, 13)
+ALLOWED_HEIGHTS = (BottomField.HEIGHT, TallField.HEIGHT, 13, 12)
 
 
 class State(object):
@@ -38,6 +38,8 @@ class State(object):
 
         if height == BottomField.HEIGHT:
             self.field = BottomField(num_layers, has_garbage=has_garbage)
+        elif height == 12: # normalenv
+            self.field = MyField(num_layers, has_garbage=has_garbage)
         else:
             self.field = TallField(num_layers, tsu_rules=tsu_rules, has_garbage=has_garbage)
         self.width = width
@@ -74,6 +76,8 @@ class State(object):
     @property
     def max_score(self):
         if isinstance(self.field, BottomField):
+            return self.max_chain ** 2
+        elif isinstance(self.field, MyField):
             return self.max_chain ** 2
         else:
             return 10 * self.width * self.height * 999 * self.max_chain  # FIXME: This overshoots a lot

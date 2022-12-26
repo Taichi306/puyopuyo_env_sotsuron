@@ -318,3 +318,6 @@ class TallField(object):
                 row %= 8
                 instance.data[row + 8 * puyo + 8 * num_layers * offset] |= 1 << column
         return instance
+
+class MyField(TallField):
+   pass
