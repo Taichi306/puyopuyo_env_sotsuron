@@ -161,8 +161,7 @@ class PuyoPuyoEndlessBoxedEnv(PuyoPuyoEndlessEnv):
         padding = np.zeros((self.state.num_colors, 1, self.state.width), dtype=np.int8)
         observation = np.hstack((deals, padding, field)).astype(np.float32)
         # Convert to HWC to be compatible with TensorFlow conv2d.
-        # return observation.transpose(1, 2, 0)
-        return observation
+        return observation.transpose(1, 2, 0)
 
     def reset(self):
         super(PuyoPuyoEndlessBoxedEnv, self).reset()
