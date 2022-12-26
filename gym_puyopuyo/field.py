@@ -217,7 +217,7 @@ class TallField(object):
 
     def resolve(self):
         chain = core.tall_resolve(self.data, self.num_layers, self.tsu_rules, self.has_garbage)
-        chain *= chain # ここの報酬を変える
+        chain *= chain # ここの報酬を変える.
         return chain
 
     def encode(self):
