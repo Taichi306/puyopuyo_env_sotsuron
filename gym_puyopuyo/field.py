@@ -216,10 +216,7 @@ class TallField(object):
         return core.tall_clear_groups(self.data, self.num_layers, chain_number, self.tsu_rules, self.has_garbage)
 
     def resolve(self):
-        # reward変更
-        chain =  core.tall_resolve(self.data, self.num_layers, self.tsu_rules, self.has_garbage)
-        chain *= chain
-        return chain
+        return core.tall_resolve(self.data, self.num_layers, self.tsu_rules, self.has_garbage)
 
     def encode(self):
         data = core.tall_encode(self.data, self.num_layers)

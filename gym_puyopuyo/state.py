@@ -240,7 +240,11 @@ class State(object):
         if not self.validate_action(x, orientation):
             return -1
         self.play_deal(x, orientation)
-        reward = self.field.resolve()[0]
+        chain = self.field.resolve()[0]
+
+        # reward変更
+        reward = chain * chain
+
         if isinstance(self.field, TallField) and not any(self.field.data):
             reward += 8500
         if self.TESTING:
