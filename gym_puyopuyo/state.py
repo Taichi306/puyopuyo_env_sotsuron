@@ -247,6 +247,7 @@ class State(object):
 
         if isinstance(self.field, TallField) and not any(self.field.data):
             # reward += 8500
+            pass
         if self.TESTING:
             assert (self.field.sane)
         return reward
