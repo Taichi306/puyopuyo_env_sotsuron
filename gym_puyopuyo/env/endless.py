@@ -98,6 +98,7 @@ class PuyoPuyoEndlessEnv(gym.Env):
         observation, reward = self._step_state(self.state, action)
 
         if self.step_cnt >= self.max_step:
+            self.step_cnt = 0
             return observation, reward, True, {"state": self.state}
         else:
             return observation, reward, (reward < 0), {"state": self.state}
