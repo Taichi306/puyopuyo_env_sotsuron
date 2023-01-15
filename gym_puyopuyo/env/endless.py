@@ -37,6 +37,9 @@ class PuyoPuyoEndlessEnv(gym.Env):
         self.anim_state = None
         self.last_action = None
 
+        self.max_step = 100
+        self.step_cnt = 0
+
     def seed(self, seed=None):
         return [self.state.seed(seed)]
 
@@ -90,9 +93,14 @@ class PuyoPuyoEndlessEnv(gym.Env):
         return reward
 
     def step(self, action):
+        self.step_cnt += 1
         self.last_action = action
         observation, reward = self._step_state(self.state, action)
-        return observation, reward, (reward < 0), {"state": self.state}
+
+        if self.step_cnt == self.max_step:
+            return observation, reward, True, {"state": self.state}
+        else:
+            return observation, reward, (reward < 0), {"state": self.state}
 
     def get_action_mask(self):
         return self.state.get_action_mask()

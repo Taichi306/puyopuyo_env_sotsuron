@@ -246,7 +246,9 @@ class State(object):
         reward = chain * chain
 
         if isinstance(self.field, TallField) and not any(self.field.data):
-            reward += 8500
+            # reward += 8500
+            # 8500足すのはやめる
+            pass
         if self.TESTING:
             assert (self.field.sane)
         return reward

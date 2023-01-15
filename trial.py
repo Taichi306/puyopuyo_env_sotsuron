@@ -28,6 +28,5 @@ for i in range(100):
     # if reward >=1:
     #     print(f'reward:{reward}')
 
-
     if done:
         break
