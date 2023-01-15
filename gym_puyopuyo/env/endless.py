@@ -37,7 +37,7 @@ class PuyoPuyoEndlessEnv(gym.Env):
         self.anim_state = None
         self.last_action = None
 
-        self.max_step = 100
+        self.max_step = 5
         self.step_cnt = 0
 
     def seed(self, seed=None):
